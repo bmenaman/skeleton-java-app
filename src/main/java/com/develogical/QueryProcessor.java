@@ -144,7 +144,7 @@ public class QueryProcessor {
 
     private String mult(String q) {
         System.out.println(q);
-        String patternString1 = "what is (.*) multiplied by (.*)";
+        String patternString1 = "what is ([0-9]+) multiplied by ([0-9]+)";
 
         Pattern pattern = Pattern.compile(patternString1);
         Matcher matcher = pattern.matcher(q);
@@ -157,7 +157,7 @@ public class QueryProcessor {
     }
     private String multplus(String q) {
         System.out.println(q);
-        String patternString1 = "what is (.*)  by (.*) plus (.*)";
+        String patternString1 = "what is ([0-9]+)  by ([0-9]+) plus ([0-9]+)";
 
         Pattern pattern = Pattern.compile(patternString1);
         Matcher matcher = pattern.matcher(q);
@@ -171,7 +171,7 @@ public class QueryProcessor {
     }
     private String plusmult(String q) {
         System.out.println(q);
-        String patternString1 = "what is (.*) plus by (.*) multiplied (.*)";
+        String patternString1 = "what is ([0-9]+) plus by ([0-9]+) multiplied ([0-9]+)";
 
         Pattern pattern = Pattern.compile(patternString1);
         Matcher matcher = pattern.matcher(q);
