@@ -21,48 +21,54 @@ public class QueryProcessor {
 
     public String process(String query) {
         String resp = "";
-        if(query == null)
-            resp = "";
-        if (query.toLowerCase().contains("romeo and juliet")) {
-            resp = "William Shakespeare";
+        try {
+            if (query == null)
+                resp = "";
+            if (query.toLowerCase().contains("romeo and juliet")) {
+                resp = "William Shakespeare";
+            }
+            if (query.toLowerCase().contains("what is your name")) {
+                resp = "roger day";
+            }
+            if (query.toLowerCase().contains("which of the following numbers is the largest:")) {
+                resp = largestNum(query.toLowerCase());
+            }
+            if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("plus")) {
+                resp = plus(query.toLowerCase());
+            }
+            if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("multiplied")) {
+                resp = mult(query.toLowerCase());
+            }
+            if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("power")) {
+                resp = power(query.toLowerCase());
+            }
+            if (query.toLowerCase().contains("multiplied") && query.toLowerCase().contains("plus")) {
+                resp = "";
+            }
+            if (query.toLowerCase().contains("which of the following numbers are primes")) {
+                resp = primes(query.toLowerCase());
+            }
+            if (query.toLowerCase().matches("multiplied.*plus")) {
+                resp = multplus(query.toLowerCase());
+            }
+            if (query.toLowerCase().matches("plus.*multiplied")) {
+                resp = plusmult(query.toLowerCase());
+            }
+            if (query.toLowerCase().contains("which of the following numbers are both square and cube")) {
+                resp = squareAndCube(query.toLowerCase());
+            }
+            if (query.toLowerCase().contains("what colour is a banana")) {
+                resp = "yellow";
+            }
+            if (query.toLowerCase().contains("which year was theresa may")) {
+                resp = "2016";
+            }
+            return resp;
+        }catch(Throwable t){
+            return "";
+        }finally {
+            return resp;
         }
-        if (query.toLowerCase().contains("what is your name")) {
-            resp = "roger day";
-        }
-        if (query.toLowerCase().contains("which of the following numbers is the largest:")) {
-            resp = largestNum(query.toLowerCase());
-        }
-        if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("plus")) {
-            resp = plus(query.toLowerCase());
-        }
-        if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("multiplied")) {
-            resp = mult(query.toLowerCase());
-        }
-        if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("power")) {
-            resp = power(query.toLowerCase());
-        }
-        if (query.toLowerCase().contains("multiplied") && query.toLowerCase().contains("plus")) {
-            resp = "";
-        }
-        if (query.toLowerCase().contains("which of the following numbers are primes")) {
-            resp = primes(query.toLowerCase());
-        }
-        if (query.toLowerCase().matches("multiplied.*plus")) {
-            resp = multplus(query.toLowerCase());
-        }
-        if (query.toLowerCase().matches("plus.*multiplied")) {
-            resp = plusmult(query.toLowerCase());
-        }
-        if (query.toLowerCase().contains("which of the following numbers are both square and cube")) {
-            resp = squareAndCube(query.toLowerCase());
-        }
-        if (query.toLowerCase().contains("what colour is a banana")) {
-            resp = "yellow";
-        }
-        if (query.toLowerCase().contains("which year was theresa may")) {
-            resp = "2016";
-        }
-        return resp;
     }
 
     private String squareAndCube(String q) {
