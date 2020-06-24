@@ -47,6 +47,12 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("which of the following numbers are primes")) {
             resp = primes(query.toLowerCase());
         }
+        if (query.toLowerCase().matches("multiplied.*plus")) {
+            resp = multplus(query.toLowerCase());
+        }
+        if (query.toLowerCase().matches("plus.*multiplied")) {
+            resp = plusmult(query.toLowerCase());
+        }
         if (query.toLowerCase().contains("which of the following numbers are both square and cube")) {
             resp = squareAndCube(query.toLowerCase());
         }
@@ -148,6 +154,34 @@ public class QueryProcessor {
         int y = Integer.parseInt(matcher.group(2));
 
         return String.valueOf(x*y);
+    }
+    private String multplus(String q) {
+        System.out.println(q);
+        String patternString1 = "what is (.*)  by (.*) plus (.*)";
+
+        Pattern pattern = Pattern.compile(patternString1);
+        Matcher matcher = pattern.matcher(q);
+        matcher.find();
+
+        int x = Integer.parseInt(matcher.group(1));
+        int y = Integer.parseInt(matcher.group(2));
+        int z = Integer.parseInt(matcher.group(3));
+
+        return String.valueOf(x*y+z);
+    }
+    private String plusmult(String q) {
+        System.out.println(q);
+        String patternString1 = "what is (.*) plus by (.*) multiplied (.*)";
+
+        Pattern pattern = Pattern.compile(patternString1);
+        Matcher matcher = pattern.matcher(q);
+        matcher.find();
+
+        int x = Integer.parseInt(matcher.group(1));
+        int y = Integer.parseInt(matcher.group(2));
+        int z = Integer.parseInt(matcher.group(3));
+
+        return String.valueOf(x+y*z);
     }
 
     private String largestNum(String q) {
