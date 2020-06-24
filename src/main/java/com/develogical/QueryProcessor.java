@@ -41,6 +41,9 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("power")) {
             resp = power(query.toLowerCase());
         }
+        if (query.toLowerCase().contains("multiplied") && query.toLowerCase().contains("plus")) {
+            resp = "";
+        }
         if (query.toLowerCase().contains("which of the following numbers are primes")) {
             resp = primes(query.toLowerCase());
         }
