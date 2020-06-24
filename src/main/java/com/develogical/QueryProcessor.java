@@ -18,7 +18,24 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("which of the following numbers is the largest:")) {
             resp = largestNum(query.toLowerCase());
         }
+        if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("plus")) {
+            resp = plus(query.toLowerCase());
+        }
         return resp;
+    }
+
+    private String plus(String q) {
+        System.out.println(q);
+        String patternString1 = "what is (.*) plus (.*)";
+
+        Pattern pattern = Pattern.compile(patternString1);
+        Matcher matcher = pattern.matcher(q);
+        matcher.find();
+
+        int x = Integer.parseInt(matcher.group(1));
+        int y = Integer.parseInt(matcher.group(2));
+
+        return String.valueOf(x+y);
     }
 
     private String largestNum(String q) {

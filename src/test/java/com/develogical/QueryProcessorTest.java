@@ -32,10 +32,12 @@ public class QueryProcessorTest {
     assertThat(queryProcessor.process("which of the following numbers is the largest: "+x+", "+y), is(y));
   }
 
-//  @Test
+  @Test
   public void xplusy() throws Exception {
     Integer x = 1;
     Integer y = 2;
-    //assertThat(queryProcessor.process("what is "+x.toString()+" plus "+y.toString()), is(x+y));
+    String q = "what is "+x.toString()+" plus "+y.toString();
+    System.out.println(q);
+    assertThat(queryProcessor.process(q), is("3"));
   }
 }
