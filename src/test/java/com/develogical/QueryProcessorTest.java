@@ -29,7 +29,7 @@ public class QueryProcessorTest {
   public void largest() throws Exception {
     String x = "1";
     String y = "2";
-    assertThat(queryProcessor.process("which of the following numbers is the largest: 1, 2, 3"), is("3"));
+    assertThat(queryProcessor.process("which of the following numbers is the largest: 13, 148, 103, 93"), is("148"));
   }
 
   @Test
@@ -39,5 +39,12 @@ public class QueryProcessorTest {
     String q = "what is "+x.toString()+" plus "+y.toString();
     System.out.println(q);
     assertThat(queryProcessor.process(q), is("3"));
+  }
+
+  @Test
+  public void isprime() throws Exception {
+    String q = "which of the following numbers are primes: 229, 870";
+    System.out.println(q);
+    assertThat(queryProcessor.process(q), is("229"));
   }
 }
