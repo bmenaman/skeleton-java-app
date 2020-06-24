@@ -28,6 +28,9 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("which of the following numbers are primes")) {
             resp = primes(query.toLowerCase());
         }
+        if (query.toLowerCase().contains("what colour is a banana")) {
+            resp = "yellow";
+        }
         return resp;
     }
 
