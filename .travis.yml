@@ -2,3 +2,9 @@ language: java
 jdk:
 - openjdk8
 script: mvn clean verify
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: edsXPNU8+gVRi2+D0Pgrq3+W+DncbzXORFlCr0jbcmB9OcL1brSaD1EANFFECoswFXQmFdZuxa9whDb8zolJ7h25C0NPxJ4x3r/58WL4RwDQpBnshsvDVRl8atMKhCCW3WwyL0iYvbhNj8iTjRROxiu5kukHCzHCjqJwHjEALzDZGH4H/f2zv95EQNCHOUCL30ol1Sc5cujq5LeIiZMQJiD0x78rfnvwIgJnXFiC9nFDjEmM5zBUL1/oe5UbuIkoLfxXhNsh6+C/J4HxUqnmM/OAf2hIKsuRsTu0/5wxsVTNrDlVsQdpmXffbjMZCKAtWnl8xJRHeAF/RQnxQrdHHFhm6nKk+M+kVHWVQowZytz9nU2/a/C7Jju/o76OByRsc7O7+NAo8wy+R8ZHZFcNA4ePM3Bg7tS+BoroUDSDkkCXPXMhi9YlRKu6ryF0T/AYP8AsfWBK7ELRO+pn0OSxVAZ9n46XbFk2Gj3UwbDxipH0vfyXzKjzpJLg17jDjAKYtJXTLcqY7TufZhR52dvqEIUc56an3bAJvmuhEJhKl76sDvmSYdvtraNcZRfg9DdCpPGnpZxPBLtiBjH1J9q4TQRWjT1xmnlkkUZ1uL7HsPig+ZsigWzOtsvkv5Vs5nF0kWvdbzqNYAPfeFwVIKz+0IQon2NzN8uEefnYalrkcCA=
+  app: rd-hisdt
