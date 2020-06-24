@@ -31,6 +31,9 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what colour is a banana")) {
             resp = "yellow";
         }
+        if (query.toLowerCase().contains("which year was theresa may")) {
+            resp = "2016";
+        }
         return resp;
     }
 
