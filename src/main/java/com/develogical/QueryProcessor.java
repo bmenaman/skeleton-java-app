@@ -3,14 +3,16 @@ package com.develogical;
 public class QueryProcessor {
 
     public String process(String query) {
+        System.out.println("Query "+query);
+        String resp = "undefined";
         if(query == null)
-            return "";
+            resp = "undefined";
         if (query.toLowerCase().contains("romeo and juliet")) {
-            return "William Shakespeare";
+            resp = "William Shakespeare";
         }
         if (query.toLowerCase().contains("what is your name")) {
-            return "Roger";
+            resp = "Roger Day";
         }
-        return "";
+        return resp;
     }
 }
