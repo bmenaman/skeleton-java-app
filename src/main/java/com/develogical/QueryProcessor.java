@@ -11,7 +11,7 @@ public class QueryProcessor {
     public String process(String query) {
         String resp = "";
         if(query == null)
-            resp = "undefined";
+            resp = "";
         if (query.toLowerCase().contains("romeo and juliet")) {
             resp = "William Shakespeare";
         }
