@@ -1,10 +1,12 @@
 package com.develogical;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class QueryProcessor {
 
     public String process(String query) {
-        System.out.println("Query "+query);
-        String resp = "undefined";
+        String resp = "";
         if(query == null)
             resp = "undefined";
         if (query.toLowerCase().contains("romeo and juliet")) {
@@ -13,6 +15,43 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what is your name")) {
             resp = "roger day";
         }
+        if (query.toLowerCase().contains("which of the following numbers is the largest:")) {
+            resp = largestNum(query.toLowerCase());
+        }
         return resp;
+    }
+
+    private String largestNum(String q) {
+        System.out.println(q);
+        String patternString1 = "which of the following numbers is the largest: (.*), (.*)";
+
+        Pattern pattern = Pattern.compile(patternString1);
+        Matcher matcher = pattern.matcher(q);
+        matcher.find();
+
+        int x = Integer.parseInt(matcher.group(1));
+        int y = Integer.parseInt(matcher.group(2));
+
+        if(x>y)
+            return String.valueOf(x);
+        else
+            return String.valueOf(y);
+    }
+
+    public String todo(){
+        String text    =
+                "John writes about this, and John writes about that," +
+                        " and John writes about everything. "
+                ;
+
+        String patternString1 = "(John)";
+
+        Pattern pattern = Pattern.compile(patternString1);
+        Matcher matcher = pattern.matcher(text);
+
+        while(matcher.find()) {
+            System.out.println("found: " + matcher.group(1));
+        }
+        return "";
     }
 }

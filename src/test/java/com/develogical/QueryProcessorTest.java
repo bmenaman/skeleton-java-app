@@ -26,7 +26,16 @@ public class QueryProcessorTest {
   }
 
   @Test
-  public void yourname() throws Exception {
-    assertThat(queryProcessor.process("what is your name"), is("Roger Day"));
+  public void largest() throws Exception {
+    String x = "1";
+    String y = "2";
+    assertThat(queryProcessor.process("which of the following numbers is the largest: "+x+", "+y), is(y));
+  }
+
+//  @Test
+  public void xplusy() throws Exception {
+    Integer x = 1;
+    Integer y = 2;
+    //assertThat(queryProcessor.process("what is "+x.toString()+" plus "+y.toString()), is(x+y));
   }
 }
