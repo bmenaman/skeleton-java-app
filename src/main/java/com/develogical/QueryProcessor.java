@@ -102,16 +102,22 @@ public class QueryProcessor {
 
     private String plus(String q) {
         System.out.println(q);
-        String patternString1 = "what is (.*) plus (.*)";
+        String patternString1 = "[0-9]+";
 
+        List<String> allMatches = new ArrayList<String>();
         Pattern pattern = Pattern.compile(patternString1);
-        Matcher matcher = pattern.matcher(q);
-        matcher.find();
+        Matcher m = pattern.matcher(q);
+        while (m.find()) {
+            allMatches.add(m.group());
+        }
 
-        int x = Integer.parseInt(matcher.group(1));
-        int y = Integer.parseInt(matcher.group(2));
+        List<Integer> intnums = new ArrayList<>();
+        for(String s: allMatches){
+            intnums.add(Integer.parseInt(s));
+        }
 
-        return String.valueOf(x+y);
+
+        return String.valueOf(intnums.stream().mapToInt(Integer::intValue).sum());
     }
     private String power(String q) {
         System.out.println(q);
