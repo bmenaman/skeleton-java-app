@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class QueryProcessor {
 
-    public QueryProcessor(List<Integer> squares, List<Integer> cubes) {
+    public QueryProcessor() {
         squares = new ArrayList<>();
         cubes = new ArrayList<>();
         for(int i =1;i<1001;i++){
