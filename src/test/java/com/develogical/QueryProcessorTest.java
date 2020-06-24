@@ -29,7 +29,7 @@ public class QueryProcessorTest {
   public void largest() throws Exception {
     String x = "1";
     String y = "2";
-    assertThat(queryProcessor.process("which of the following numbers is the largest: "+x+", "+y), is(y));
+    assertThat(queryProcessor.process("which of the following numbers is the largest: 1, 2, 3"), is("3"));
   }
 
   @Test

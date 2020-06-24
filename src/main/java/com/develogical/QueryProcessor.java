@@ -1,5 +1,8 @@
 package com.develogical;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -40,19 +43,21 @@ public class QueryProcessor {
 
     private String largestNum(String q) {
         System.out.println(q);
-        String patternString1 = "which of the following numbers is the largest: (.*), (.*)";
+        String patternString1 = "which of the following numbers is the largest: (.*)";
 
         Pattern pattern = Pattern.compile(patternString1);
         Matcher matcher = pattern.matcher(q);
         matcher.find();
 
-        int x = Integer.parseInt(matcher.group(1));
-        int y = Integer.parseInt(matcher.group(2));
+        String nums = matcher.group(1);
+        String[] numsarr = nums.split(", ");
 
-        if(x>y)
-            return String.valueOf(x);
-        else
-            return String.valueOf(y);
+        List<Integer> intnums = new ArrayList<>();
+        for(String s: numsarr){
+            intnums.add(Integer.parseInt(s));
+        }
+        return Collections.max(intnums).toString();
+
     }
 
     public String todo(){
