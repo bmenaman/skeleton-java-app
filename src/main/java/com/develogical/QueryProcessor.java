@@ -38,6 +38,9 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("multiplied")) {
             resp = mult(query.toLowerCase());
         }
+        if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("power")) {
+            resp = power(query.toLowerCase());
+        }
         if (query.toLowerCase().contains("which of the following numbers are primes")) {
             resp = primes(query.toLowerCase());
         }
@@ -109,6 +112,19 @@ public class QueryProcessor {
         int y = Integer.parseInt(matcher.group(2));
 
         return String.valueOf(x+y);
+    }
+    private String power(String q) {
+        System.out.println(q);
+        String patternString1 = "what is (.*) to the power of (.*)";
+
+        Pattern pattern = Pattern.compile(patternString1);
+        Matcher matcher = pattern.matcher(q);
+        matcher.find();
+
+        int x = Integer.parseInt(matcher.group(1));
+        int y = Integer.parseInt(matcher.group(2));
+
+        return String.valueOf(x^y);
     }
 
     private String mult(String q) {
