@@ -4,5 +4,5 @@ jdk:
 script: mvn clean verify
 deploy:
   provider: heroku
-  api_key: 64931e77-6999-465e-adb8-bbd912dd7682
+  api_key: 
   app: rd-hisdt
